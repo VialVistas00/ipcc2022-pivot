@@ -1,0 +1,21 @@
+
+ Performance counter stats for 'taskset -c 8 ./pivot_O2 uniformvector-2dim-5h.txt' (3 runs):
+
+         59,890.99 msec task-clock                #    0.999 CPUs utilized            ( +-  0.17% )
+   155,495,397,364      cycles                    #    2.593 GHz                      ( +-  0.17% )  (79.99%)
+   975,289,914,930      instructions              #    6.26  insn per cycle           ( +-  0.01% )  (90.00%)
+           852,671      cache-references          #   14.217 K/sec                    ( +- 16.47% )  (90.00%)
+           260,451      cache-misses              #   31.581 % of all cache refs      ( +-  5.80% )  (90.00%)
+   157,338,268,035      branch-instructions       #    2.623 G/sec                    ( +-  0.00% )  (90.00%)
+        63,313,307      branch-misses             #    0.04% of all branches          ( +-  0.03% )  (90.00%)
+               157      context-switches          #    2.618 /sec                     ( +-  1.12% )
+               154      page-faults               #    2.568 /sec                     ( +-  0.22% )
+               154      minor-faults              #    2.568 /sec                     ( +-  0.22% )
+                 0      major-faults              #    0.000 /sec                   
+   125,847,186,364      L1-dcache-loads           #    2.098 G/sec                    ( +-  0.00% )  (90.00%)
+         5,312,177      L1-dcache-load-misses     #    0.00% of all L1-dcache accesses  ( +-  1.00% )  (90.00%)
+           256,546      LLC-loads                 #    4.277 K/sec                    ( +- 13.02% )  (90.00%)
+            84,004      LLC-load-misses           #   32.28% of all LL-cache accesses  ( +-  2.04% )  (90.00%)
+
+            59.980 +- 0.102 seconds time elapsed  ( +-  0.17% )
+

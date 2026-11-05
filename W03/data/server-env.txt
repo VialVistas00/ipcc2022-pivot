@@ -1,0 +1,15 @@
+=== 0. 环境 ===
+hzcu-hpct
+Linux hzcu-hpct 5.15.0-191-generic #201-Ubuntu SMP Fri Aug 7 18:39:04 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+gcc (Ubuntu 12.3.0-1ubuntu1~22.04.3) 12.3.0
+128
+               total        used        free      shared  buff/cache   available
+Mem:           503Gi        93Gi        15Gi       144Gi       394Gi       262Gi
+Model name:                              Intel(R) Xeon(R) Gold 6430
+CPU max MHz:                             3400.0000
+CPU min MHz:                             800.0000
+L1d cache:                               3 MiB (64 instances)
+L2 cache:                                128 MiB (64 instances)
+L3 cache:                                120 MiB (2 instances)
+perf version 5.15.209
+perf_event_paranoid=-1

@@ -1,0 +1,28 @@
+=== 2. 计时（每档 2 次） ===
+LEVEL        RUN      WALL_S  USING_TIME_MS
+O0           r1       497.58  497587.315000
+  result SAME
+O0           r2       503.35  503354.202000
+  result SAME
+O1           r1        97.24   97242.644000
+  result SAME
+O1           r2        97.36   97361.190000
+  result SAME
+O2           r1        61.13   61130.133000
+  result SAME
+O2           r2        60.16   60161.859000
+  result SAME
+O3           r1        61.97   61974.067000
+  result SAME
+  result SAME
+# ---- 以下 5 行是脚本被登录会话中断后手工补跑（同一台机、同一命令、同一绑核）----
+O3           r2        61.93   61934.552000
+  result SAME
+O2native     r1        62.01   62006.775000
+  result SAME
+O2native     r2        61.87   61875.495000
+  result SAME
+O3native     r1        62.79   62787.696000
+  result SAME
+O3native     r2        62.36   62361.354000
+  result SAME

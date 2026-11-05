@@ -1,0 +1,26 @@
+﻿
+[BUILD] O0  gcc -O0 -o pivot_O0.exe pivot.c -lm => exit 0 
+[RUN] O0        run1  wall=   296.33 s  self=     296,234 ms
+[RUN] O0        run2  wall=   307.18 s  self=     307,087 ms
+[RUN] O0        run3  wall=   304.52 s  self=     304,418 ms
+[BUILD] O1  gcc -O1 -o pivot_O1.exe pivot.c -lm => exit 0 
+[RUN] O1        run1  wall=    32.78 s  self=      32,681 ms
+[RUN] O1        run2  wall=    33.64 s  self=      33,547 ms
+[RUN] O1        run3  wall=    32.98 s  self=      32,877 ms
+[BUILD] O2  gcc -O2 -o pivot_O2.exe pivot.c -lm => exit 0 
+[RUN] O2        run1  wall=    36.92 s  self=      36,825 ms
+[RUN] O2        run2  wall=    37.82 s  self=      37,719 ms
+[RUN] O2        run3  wall=    37.27 s  self=      37,173 ms
+[BUILD] O3  gcc -O3 -o pivot_O3.exe pivot.c -lm => exit 0 
+[RUN] O3        run1  wall=    33.71 s  self=      33,614 ms
+[RUN] O3        run2  wall=    33.03 s  self=      32,921 ms
+[RUN] O3        run3  wall=    33.43 s  self=      33,318 ms
+[BUILD] O2native  gcc -O2 -march=native -o pivot_O2native.exe pivot.c -lm => exit 0 
+[RUN] O2native  run1  wall=    38.30 s  self=      38,185 ms
+[RUN] O2native  run2  wall=    38.57 s  self=      38,312 ms
+[RUN] O2native  run3  wall=    38.46 s  self=      38,348 ms
+[BUILD] O3native  gcc -O3 -march=native -o pivot_O3native.exe pivot.c -lm => exit 0 
+[RUN] O3native  run1  wall=    39.73 s  self=      39,621 ms
+[RUN] O3native  run2  wall=    40.53 s  self=      40,420 ms
+[RUN] O3native  run3  wall=    41.01 s  self=      40,892 ms
+[DONE] 2026-10-30T12:37:35.3031425+08:00

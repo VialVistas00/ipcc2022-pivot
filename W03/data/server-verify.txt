@@ -1,0 +1,13 @@
+SAME results/run/O0/r1/result.txt
+SAME results/run/O0/r2/result.txt
+SAME results/run/O1/r1/result.txt
+SAME results/run/O1/r2/result.txt
+SAME results/run/O2native/r1/result.txt
+SAME results/run/O2native/r2/result.txt
+SAME results/run/O2/r1/result.txt
+SAME results/run/O2/r2/result.txt
+SAME results/run/O3native/r1/result.txt
+SAME results/run/O3native/r2/result.txt
+SAME results/run/O3/r1/result.txt
+SAME results/run/O3/r2/result.txt
+checked=12

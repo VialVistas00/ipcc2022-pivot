@@ -1,0 +1,47 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 60K of event 'cycles'
+# Event count (approx.): 155840840641
+#
+# Children      Self  Symbol                                 IPC   [IPC Coverage]
+# ........  ........  .....................................  ....................
+#
+    99.98%     0.00%  [.] __libc_start_call_main             -      -            
+            |          
+             --99.98%--main
+                       |          
+                        --99.98%--Combination
+                                  Combination
+                                  |          
+                                   --99.61%--SumDistance
+
+    99.98%     0.00%  [.] main                               -      -            
+            |          
+             --99.98%--Combination
+                       Combination
+                       |          
+                        --99.61%--SumDistance
+
+    99.98%     0.35%  [.] Combination                        -      -            
+            |          
+             --99.63%--Combination
+                       Combination
+                       |          
+                        --99.61%--SumDistance
+
+    99.61%    99.55%  [.] SumDistance                        -      -            
+            |          
+             --99.55%--__libc_start_call_main
+                       main
+                       Combination
+                       Combination
+                       SumDistance
+
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

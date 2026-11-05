@@ -1,0 +1,72 @@
+=== 1. 编译各级优化 ===
+OK   pivot_O0
+pivot.c: In function ‘main’:
+pivot.c:162:5: warning: ignoring return value of ‘fscanf’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  162 |     fscanf(file, "%d", &dim);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+pivot.c:163:5: warning: ignoring return value of ‘fscanf’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  163 |     fscanf(file, "%d", &n);
+      |     ^~~~~~~~~~~~~~~~~~~~~~
+pivot.c:164:5: warning: ignoring return value of ‘fscanf’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  164 |     fscanf(file, "%d", &k);
+      |     ^~~~~~~~~~~~~~~~~~~~~~
+pivot.c:177:13: warning: ignoring return value of ‘fscanf’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  177 |             fscanf(file, "%lf", &coord[i*dim + j]);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+OK   pivot_O1
+pivot.c: In function ‘main’:
+pivot.c:162:5: warning: ignoring return value of ‘fscanf’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  162 |     fscanf(file, "%d", &dim);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+pivot.c:163:5: warning: ignoring return value of ‘fscanf’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  163 |     fscanf(file, "%d", &n);
+      |     ^~~~~~~~~~~~~~~~~~~~~~
+pivot.c:164:5: warning: ignoring return value of ‘fscanf’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  164 |     fscanf(file, "%d", &k);
+      |     ^~~~~~~~~~~~~~~~~~~~~~
+pivot.c:177:13: warning: ignoring return value of ‘fscanf’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  177 |             fscanf(file, "%lf", &coord[i*dim + j]);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+OK   pivot_O2
+pivot.c: In function ‘main’:
+pivot.c:162:5: warning: ignoring return value of ‘fscanf’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  162 |     fscanf(file, "%d", &dim);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+pivot.c:163:5: warning: ignoring return value of ‘fscanf’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  163 |     fscanf(file, "%d", &n);
+      |     ^~~~~~~~~~~~~~~~~~~~~~
+pivot.c:164:5: warning: ignoring return value of ‘fscanf’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  164 |     fscanf(file, "%d", &k);
+      |     ^~~~~~~~~~~~~~~~~~~~~~
+pivot.c:177:13: warning: ignoring return value of ‘fscanf’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  177 |             fscanf(file, "%lf", &coord[i*dim + j]);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+OK   pivot_O3
+pivot.c: In function ‘main’:
+pivot.c:162:5: warning: ignoring return value of ‘fscanf’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  162 |     fscanf(file, "%d", &dim);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+pivot.c:163:5: warning: ignoring return value of ‘fscanf’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  163 |     fscanf(file, "%d", &n);
+      |     ^~~~~~~~~~~~~~~~~~~~~~
+pivot.c:164:5: warning: ignoring return value of ‘fscanf’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  164 |     fscanf(file, "%d", &k);
+      |     ^~~~~~~~~~~~~~~~~~~~~~
+pivot.c:177:13: warning: ignoring return value of ‘fscanf’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  177 |             fscanf(file, "%lf", &coord[i*dim + j]);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+OK   pivot_O2native
+pivot.c: In function ‘main’:
+pivot.c:162:5: warning: ignoring return value of ‘fscanf’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  162 |     fscanf(file, "%d", &dim);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+pivot.c:163:5: warning: ignoring return value of ‘fscanf’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  163 |     fscanf(file, "%d", &n);
+      |     ^~~~~~~~~~~~~~~~~~~~~~
+pivot.c:164:5: warning: ignoring return value of ‘fscanf’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  164 |     fscanf(file, "%d", &k);
+      |     ^~~~~~~~~~~~~~~~~~~~~~
+pivot.c:177:13: warning: ignoring return value of ‘fscanf’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  177 |             fscanf(file, "%lf", &coord[i*dim + j]);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+OK   pivot_O3native
