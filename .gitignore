@@ -1,0 +1,23 @@
+# build outputs
+build/
+*.o
+*.obj
+*.exe
+
+# program output
+result.txt
+
+# python
+__pycache__/
+*.pyc
+
+# editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# local logs
+run.log
+*.tmp
