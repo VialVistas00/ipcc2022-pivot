@@ -1,0 +1,5 @@
+dim = 2, n = 500, k = 2
+Using time : 17153.598145 ms
+[OPT] threads=1 combos=124750 read=1.6 ms dist=5.8 ms enum=17127.4 ms select=18.8 ms
+max : 143 351 117761.647418
+min : 83 226 43769.849602

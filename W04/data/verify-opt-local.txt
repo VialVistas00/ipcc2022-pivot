@@ -1,0 +1,10 @@
+threads=1  SAME 924858624d0290f1 (17153.598 ms)
+threads=2  SAME 924858624d0290f1 (9409.152 ms)
+threads=4  SAME 924858624d0290f1 (5269.397 ms)
+threads=8  SAME 924858624d0290f1 (3502.140 ms)
+threads=20 SAME 924858624d0290f1 (1689.473 ms)
+
+refer-2dim-5h.txt full SHA-256:
+924858624d0290f145864ebe8b0cd094a1ddfc05935c952c3c95f63169db6a21
+
+normalization: CRLF -> LF before hashing (Windows fprintf writes CRLF)

@@ -1,0 +1,237 @@
+ Percent |	Source code & Disassembly of pivot_O2 for cycles (59730 samples, percent: local period)
+-------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3    Disassembly of section .text:
+         :
+         : 5    00000000000017f0 <SumDistance>:
+         : 6    SumDistance():
+         : 7    #include<stdlib.h>
+         : 8    #include<math.h>
+         : 9    #include<sys/time.h>
+         :
+         : 11   // Calculate sum of distance while combining different pivots. Complexity : O( n^2 )
+         : 12   double SumDistance(const int k, const int n, const int dim, double* coord, int* pivots){
+    0.00 :   17f0:   endbr64
+    0.00 :   17f4:   push   %rbp
+    0.00 :   17f5:   mov    %rsp,%rbp
+    0.00 :   17f8:   push   %r15
+    0.00 :   17fa:   mov    %rcx,%r15
+    0.00 :   17fd:   push   %r14
+    0.00 :   17ff:   push   %r13
+    0.00 :   1801:   mov    %edx,%r13d
+    0.00 :   1804:   push   %r12
+    0.00 :   1806:   movslq %edi,%r12
+    0.00 :   1809:   movslq %esi,%rdi
+    0.00 :   180c:   push   %rbx
+    0.00 :   180d:   mov    %r12,%r14
+    0.00 :   1810:   sub    $0x48,%rsp
+         : 8    double* rebuiltCoord = (double*)malloc(sizeof(double) * n * k);
+    0.00 :   1814:   mov    %edi,-0x38(%rbp)
+    0.00 :   1817:   imul   %r12,%rdi
+         : 7    double SumDistance(const int k, const int n, const int dim, double* coord, int* pivots){
+    0.00 :   181b:   mov    %r8,-0x40(%rbp)
+         : 8    double* rebuiltCoord = (double*)malloc(sizeof(double) * n * k);
+    0.00 :   181f:   shl    $0x3,%rdi
+    0.00 :   1823:   call   1190 <malloc@plt>
+         : 10   int i;
+         : 11   for(i=0; i<n*k; i++){
+    0.00 :   1828:   mov    -0x38(%rbp),%r10d
+    0.00 :   182c:   mov    -0x40(%rbp),%r11
+         : 8    double* rebuiltCoord = (double*)malloc(sizeof(double) * n * k);
+    0.00 :   1830:   mov    %rax,%rdi
+         : 10   for(i=0; i<n*k; i++){
+    0.00 :   1833:   mov    %r10d,%eax
+    0.00 :   1836:   imul   %r12d,%eax
+    0.00 :   183a:   test   %eax,%eax
+    0.00 :   183c:   jle    1860 <SumDistance+0x70>
+         : 11   rebuiltCoord[i] = 0;
+    0.00 :   183e:   lea    0x0(,%rax,8),%rdx
+    0.00 :   1846:   xor    %esi,%esi
+    0.00 :   1848:   mov    %r11,-0x40(%rbp)
+    0.00 :   184c:   mov    %r10d,-0x38(%rbp)
+    0.00 :   1850:   call   1170 <memset@plt>
+    0.00 :   1855:   mov    -0x38(%rbp),%r10d
+    0.00 :   1859:   mov    -0x40(%rbp),%r11
+    0.00 :   185d:   mov    %rax,%rdi
+         : 29   rebuiltCoord[i*k + ki] = sqrt(distance);
+         : 30   }
+         : 31   }
+         :
+         : 33   // Calculate the sum of Chebyshev distance with rebuilt coordinates between every points
+         : 34   double chebyshevSum = 0;
+    0.00 :   1860:   pxor   %xmm3,%xmm3
+         : 15   for(i=0; i<n; i++){
+    0.00 :   1864:   test   %r10d,%r10d
+    0.00 :   1867:   jle    192e <SumDistance+0x13e>
+    0.00 :   186d:   mov    %r12,-0x48(%rbp)
+    0.00 :   1871:   xor    %r8d,%r8d
+    0.00 :   1874:   mov    %r14d,%edx
+    0.00 :   1877:   lea    (%r11,%r12,4),%r9
+    0.00 :   187b:   mov    %rdi,-0x40(%rbp)
+    0.00 :   187f:   mov    %r8d,%r14d
+    0.00 :   1882:   xor    %ecx,%ecx
+    0.00 :   1884:   xor    %eax,%eax
+         : 21   for(j=0; j<dim; j++){
+    0.00 :   1886:   pxor   %xmm2,%xmm2
+    0.00 :   188a:   mov    %r11,%r8
+    0.00 :   188d:   nopl   (%rax)
+         : 17   for(ki=0; ki<k; ki++){
+    0.00 :   1890:   test   %edx,%edx
+    0.00 :   1892:   jle    190e <SumDistance+0x11e>
+    0.00 :   1894:   mov    -0x40(%rbp),%rbx
+    0.00 :   1898:   mov    %ecx,-0x38(%rbp)
+    0.00 :   189b:   movslq %ecx,%rsi
+    0.00 :   189e:   lea    (%rbx,%rsi,8),%r12
+    0.00 :   18a2:   mov    %r8,%rbx
+    0.00 :   18a5:   nopl   (%rax)
+         : 19   int pivoti = pivots[ki];
+    0.05 :   18a8:   mov    (%rbx),%r11d
+         : 21   for(j=0; j<dim; j++){
+    0.00 :   18ab:   test   %r13d,%r13d
+    0.00 :   18ae:   jle    1928 <SumDistance+0x138>
+         : 22   distance += pow(coord[pivoti*dim + j] - coord[i*dim + j] ,2);
+    0.00 :   18b0:   imul   %r13d,%r11d
+    0.03 :   18b4:   movslq %r13d,%rsi
+         : 18   double distance = 0;
+    0.01 :   18b7:   pxor   %xmm1,%xmm1
+    0.00 :   18bb:   movslq %r11d,%r11
+    0.00 :   18be:   add    %r11,%rsi
+    0.04 :   18c1:   lea    (%r15,%r11,8),%rcx
+    0.04 :   18c5:   lea    (%r15,%rsi,8),%rdi
+    0.00 :   18c9:   movslq %r14d,%rsi
+         : 22   distance += pow(coord[pivoti*dim + j] - coord[i*dim + j] ,2);
+    0.00 :   18cc:   sub    %r11,%rsi
+    0.03 :   18cf:   nop
+    0.02 :   18d0:   movsd  (%rcx),%xmm0
+    0.00 :   18d4:   subsd  (%rcx,%rsi,8),%xmm0
+         : 21   for(j=0; j<dim; j++){
+    0.00 :   18d9:   add    $0x8,%rcx
+         : 22   distance += pow(coord[pivoti*dim + j] - coord[i*dim + j] ,2);
+    0.12 :   18dd:   mulsd  %xmm0,%xmm0
+    0.04 :   18e1:   addsd  %xmm0,%xmm1
+         : 21   for(j=0; j<dim; j++){
+    0.00 :   18e5:   cmp    %rcx,%rdi
+    0.07 :   18e8:   jne    18d0 <SumDistance+0xe0>
+         : 24   rebuiltCoord[i*k + ki] = sqrt(distance);
+    0.00 :   18ea:   ucomisd %xmm1,%xmm2
+    0.08 :   18ee:   ja     19ed <SumDistance+0x1fd>
+    0.00 :   18f4:   sqrtsd %xmm1,%xmm1
+         : 17   for(ki=0; ki<k; ki++){
+    0.00 :   18f8:   add    $0x4,%rbx
+         : 24   rebuiltCoord[i*k + ki] = sqrt(distance);
+    0.00 :   18fc:   movsd  %xmm1,(%r12)
+         : 17   for(ki=0; ki<k; ki++){
+    0.04 :   1902:   add    $0x8,%r12
+    0.00 :   1906:   cmp    %rbx,%r9
+    0.01 :   1909:   jne    18a8 <SumDistance+0xb8>
+    0.00 :   190b:   mov    -0x38(%rbp),%ecx
+         : 15   for(i=0; i<n; i++){
+    0.00 :   190e:   lea    0x1(%rax),%esi
+    0.03 :   1911:   add    %edx,%ecx
+    0.00 :   1913:   add    %r13d,%r14d
+    0.00 :   1916:   cmp    %esi,%r10d
+    0.00 :   1919:   je     1950 <SumDistance+0x160>
+    0.00 :   191b:   mov    %esi,%eax
+    0.01 :   191d:   jmp    1890 <SumDistance+0xa0>
+    0.00 :   1922:   nopw   0x0(%rax,%rax,1)
+         : 21   for(j=0; j<dim; j++){
+    0.00 :   1928:   pxor   %xmm1,%xmm1
+    0.00 :   192c:   jmp    18f8 <SumDistance+0x108>
+    0.00 :   192e:   movsd  %xmm3,-0x38(%rbp)
+         : 43   }
+         : 44   chebyshevSum += chebyshev;
+         : 45   }
+         : 46   }
+         :
+         : 48   free(rebuiltCoord);
+    0.00 :   1933:   call   1110 <free@plt>
+         :
+         : 47   return chebyshevSum;
+         : 48   }
+    0.00 :   1938:   movsd  -0x38(%rbp),%xmm3
+    0.00 :   193d:   add    $0x48,%rsp
+    0.00 :   1941:   pop    %rbx
+    0.00 :   1942:   pop    %r12
+    0.00 :   1944:   movapd %xmm3,%xmm0
+    0.00 :   1948:   pop    %r13
+    0.00 :   194a:   pop    %r14
+    0.00 :   194c:   pop    %r15
+    0.00 :   194e:   pop    %rbp
+    0.00 :   194f:   ret
+    0.00 :   1950:   mov    -0x48(%rbp),%r12
+    0.00 :   1954:   mov    -0x40(%rbp),%rdi
+    0.00 :   1958:   mov    %edx,%r14d
+    0.00 :   195b:   xor    %ebx,%ebx
+    0.00 :   195d:   movq   0x74b(%rip),%xmm2        # 20b0 <_IO_stdin_used+0xb0>
+         : 29   double chebyshevSum = 0;
+    0.00 :   1965:   pxor   %xmm3,%xmm3
+         : 30   for(i=0; i<n; i++){
+    0.00 :   1969:   xor    %r13d,%r13d
+    0.00 :   196c:   nopl   0x0(%rax)
+         : 32   for(j=0; j<n; j++){
+    0.00 :   1970:   movslq %ebx,%r10
+    0.00 :   1973:   xor    %r9d,%r9d
+    0.00 :   1976:   xor    %r8d,%r8d
+    0.05 :   1979:   lea    (%r12,%r10,1),%rdx
+    0.00 :   197d:   lea    (%rdi,%r10,8),%r11
+    0.00 :   1981:   lea    (%rdi,%rdx,8),%rsi
+    0.00 :   1985:   nopl   (%rax)
+         : 33   double chebyshev = 0;
+    0.03 :   1988:   pxor   %xmm1,%xmm1
+         : 35   for(ki=0; ki<k; ki++){
+    0.00 :   198c:   test   %r14d,%r14d
+    0.00 :   198f:   jle    19be <SumDistance+0x1ce>
+    0.00 :   1991:   movslq %r9d,%rcx
+         : 36   double dis = fabs(rebuiltCoord[i*k + ki] - rebuiltCoord[j*k + ki]);
+   18.00 :   1994:   mov    %r11,%rdx
+         : 33   double chebyshev = 0;
+    0.03 :   1997:   pxor   %xmm1,%xmm1
+         : 36   double dis = fabs(rebuiltCoord[i*k + ki] - rebuiltCoord[j*k + ki]);
+    0.00 :   199b:   sub    %r10,%rcx
+    0.00 :   199e:   xchg   %ax,%ax
+   10.34 :   19a0:   movsd  (%rdx),%xmm0
+    0.06 :   19a4:   subsd  (%rdx,%rcx,8),%xmm0
+         : 35   for(ki=0; ki<k; ki++){
+    0.00 :   19a9:   add    $0x8,%rdx
+         : 36   double dis = fabs(rebuiltCoord[i*k + ki] - rebuiltCoord[j*k + ki]);
+    2.99 :   19ad:   andpd  %xmm2,%xmm0
+   16.45 :   19b1:   maxsd  %xmm1,%xmm0
+    0.01 :   19b5:   movapd %xmm0,%xmm1
+         : 35   for(ki=0; ki<k; ki++){
+    0.00 :   19b9:   cmp    %rsi,%rdx
+   19.27 :   19bc:   jne    19a0 <SumDistance+0x1b0>
+         : 39   chebyshevSum += chebyshev;
+    6.31 :   19be:   addsd  %xmm1,%xmm3
+         : 32   for(j=0; j<n; j++){
+    0.01 :   19c2:   lea    0x1(%r8),%edx
+    0.00 :   19c6:   add    %r14d,%r9d
+    0.00 :   19c9:   cmp    %r8d,%eax
+    0.02 :   19cc:   je     19d8 <SumDistance+0x1e8>
+   17.52 :   19ce:   mov    %edx,%r8d
+    8.28 :   19d1:   jmp    1988 <SumDistance+0x198>
+    0.00 :   19d3:   nopl   0x0(%rax,%rax,1)
+         : 30   for(i=0; i<n; i++){
+    0.00 :   19d8:   lea    0x1(%r13),%edx
+    0.00 :   19dc:   add    %r14d,%ebx
+    0.03 :   19df:   cmp    %r13d,%eax
+    0.00 :   19e2:   je     192e <SumDistance+0x13e>
+    0.00 :   19e8:   mov    %edx,%r13d
+    0.01 :   19eb:   jmp    1970 <SumDistance+0x180>
+         : 24   rebuiltCoord[i*k + ki] = sqrt(distance);
+    0.00 :   19ed:   movapd %xmm1,%xmm0
+    0.00 :   19f1:   mov    %r8,-0x68(%rbp)
+    0.00 :   19f5:   mov    %r10d,-0x5c(%rbp)
+    0.00 :   19f9:   mov    %edx,-0x58(%rbp)
+    0.00 :   19fc:   mov    %eax,-0x54(%rbp)
+    0.00 :   19ff:   mov    %r9,-0x50(%rbp)
+    0.00 :   1a03:   call   11d0 <sqrt@plt>
+    0.00 :   1a08:   mov    -0x68(%rbp),%r8
+    0.00 :   1a0c:   mov    -0x58(%rbp),%edx
+    0.00 :   1a0f:   pxor   %xmm2,%xmm2
+    0.00 :   1a13:   mov    -0x5c(%rbp),%r10d
+    0.00 :   1a17:   mov    -0x54(%rbp),%eax
+    0.00 :   1a1a:   movapd %xmm0,%xmm1
+    0.00 :   1a1e:   mov    -0x50(%rbp),%r9
+    0.00 :   1a22:   jmp    18f8 <SumDistance+0x108>

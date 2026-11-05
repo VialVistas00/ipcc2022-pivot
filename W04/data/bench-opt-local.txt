@@ -1,0 +1,28 @@
+# W04 local benchmark
+# machine : i7-13650HX (14C/20T) / Windows 11 / gcc 16.2.0 (w64devkit)
+# baseline: pivot.c -O2, single thread
+# opt     : pivot_opt.c -O2 -fopenmp, OMP_NUM_THREADS=N
+# timing  : program-printed "Using time" (ms), includes input read
+# verify  : result.txt vs refer-2dim-5h.txt, CRLF-normalized SHA-256
+
+BASELINE  pivot.c -O2  wall=41785 ms  using_time=41555.017 ms  SAME
+
+# --- repeats for stability ---
+THREADS  RUN  USING_TIME_MS  SPEEDUP_VS_BASELINE  RESULT
+1        r1   17605.174      2.36                 SAME
+1        r2   17562.314      2.37                 SAME
+1        r3   17644.490      2.36                 SAME
+20       r1   1735.939       23.94                SAME
+20       r2   1766.931       23.52                SAME
+20       r3   1848.292       22.48                SAME
+
+# --- final per-thread-count verification run ---
+THREADS  USING_TIME_MS  SPEEDUP_VS_BASELINE  SPEEDUP_VS_OPT_1T  RESULT
+1        17153.598      2.42                 1.00               SAME
+2        9409.152       4.42                 1.82               SAME
+4        5269.397       7.89                 3.26               SAME
+8        3502.140       11.87                4.90               SAME
+20       1689.473       24.60                10.15              SAME
+
+# time breakdown at 20 threads (from stdout_final_20.txt)
+# [OPT] threads=20 combos=124750 read=1.6 ms dist=6.1 ms enum=1694.0 ms select=27.3 ms
